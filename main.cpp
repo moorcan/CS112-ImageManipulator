@@ -20,6 +20,9 @@ signature: what_file: ifstream ofstream -> void
 purpose: Expects an ifstream and an ofstream with a side effect
 of prompting the user for the file names.
 */
+
+
+
 void what_file(ifstream& input_stream, ofstream& output_stream); //declaring function
 
 const int NUM_HEADER_LINES = 3;
@@ -27,15 +30,17 @@ const int NUM_HEADER_LINES = 3;
 int main(void)
 {
 	ifstream input_stream;
-
 	ofstream output_stream;
 	string	 line_to_read;
 	vector<string> header_info;
 	vector<int> pixel_data;
 	vector<int> converted_data;
+	int option_chosen;
+	
+
 
 	what_file(input_stream, output_stream);
-
+	
 	//Reading the first 3 lines of the File
 	if (input_stream.good() == true)
 	{
@@ -46,8 +51,6 @@ int main(void)
 		}
 	}
 
-
-
 	//Reading the body of the file
 	while (input_stream.good() == true)
 	{
@@ -55,14 +58,87 @@ int main(void)
 		input_stream >> value;
 		pixel_data.push_back(value);
 	}
+	
+	cout << "What would you like to do? 1. Remove Red, 2. Remove Blue, 3. Remove Green, 4. Negate Red\n
+		     "5. Negate Blue, 6. Negate Green, 7. Grayscale. Select number" << endl;
 
-	//Remove Green - turn every 4th number
-	//(starting with element 0) in the data component 
-	//to a zero. (Data Changed)
-	for (int i = 1; i < pixel_data.size(); i += 3)
+	cin << option_chosen;
+
+	int process_choice(int option_chosen )
 	{
-		pixel_data[i] = 0;
+		switch (option_chosen)
+		{
+		//Remove Red in RGB
+		//(starting with element 0) in the data component 
+		//to a zero. (Data Changed)
+		case 1:
+			return for (int i = 0; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 0;
+			}		
+			break;
+		
+		//Remove Green in RGB
+		//(starting with element 0) in the data component 
+		//to a zero. (Data Changed)
+		case 2: 
+			return for (int i = 1; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 0;
+			};
+			break;
+
+		//Remove Blue - turn every 4th number
+		//(starting with element 0) in the data component 
+		//to a zero. (Data Changed)
+		case 3:
+			return for (int i = 2; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 0;
+			}
+			break;
+
+		// If user selects 4 Negate Red starting at element [0]
+		case 4:
+			return for (int i = 0; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 255 - pixel_data[i];
+			}
+			break;
+
+		//If user selects 5, Negate blue starting at element [0]
+		case 5:
+			return for (int i = 1; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 255 - pixel_data[i];
+			}
+			break;
+
+		//If user selects 6, Negate green starting at element [0]
+		case 6:
+			return for (int i = 2; i < pixel_data.size(); i += 3)
+			{
+				pixel_data[i] = 255 - pixel_data[i];
+			}
+			break;
+
+		//If user selects 7, select grayscale.
+
+
+
+		default:
+			return <<"Error! Must enter number 1-7";
+		}
 	}
+
+		
+	
+		
+	
+
+	
+
+
 
 	//Write out to file (header).
 	for (int i = 0; i < header_info.size(); i++)
@@ -89,6 +165,7 @@ int main(void)
 	output_stream.close();
 	return 0;
 }
+
 
 void what_file(ifstream& input_stream, ofstream& output_stream)
 {
