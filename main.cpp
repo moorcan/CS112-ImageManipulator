@@ -55,7 +55,8 @@ int main(void)
 	}
 
 	cout << "What would you like to do? 1. Remove Red, 2. Remove Green, 3. Remove Blue, 4. Negate Red\n";
-	cout << "5. Negate Green, 6. Negate Blue, 7. Grayscale. Select number" << endl;
+	cout << "5. Negate Green, 6. Negate Blue, 7. Grayscale. 8. Add Noise 9. High Contrast\n";
+	cout << "Q. Quit Select Option" << endl;
 
 	cin >> option_chosen;
 
@@ -134,11 +135,25 @@ int main(void)
 		}
 		break;
 	case 8:
-	{
-		int randomNum = rand() % 201 + (-10);
-	}
+		for (int i = 0; i < pixel_data[i]; i++)
+		{
+			int randomNum = rand() % 256 + (-10);
+			if (randomNum < 0 == true) 
+			{
+				pixel_data[i] = 0;
+			}
+			else if (randomNum > 255 == true)
+			{
+				
+			}
+			else if (pixel_data[i] >= 0 == true)
+			{
+				 pixel_data[i] = pixel_data[i] + randomNum;
+			}
+		}
+	break;
 	default:
-		cout << "Error! Must enter number 1-7";
+		cout << "Error! Must enter number 1-8";
 	}
 
 
