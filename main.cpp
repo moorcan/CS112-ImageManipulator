@@ -133,6 +133,10 @@ int main(void)
 			}
 		}
 		break;
+	case 8:
+	{
+		int randomNum = rand() % 201 + (-10);
+	}
 	default:
 		cout << "Error! Must enter number 1-7";
 	}
