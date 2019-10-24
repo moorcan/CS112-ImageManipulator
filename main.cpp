@@ -11,6 +11,7 @@ CS112 - pa4
 #include <sstream>
 #include <vector>
 #include <set>
+#include <time.h>
 using namespace std;
 
 /*
@@ -32,6 +33,7 @@ int main(void)
 	vector<int> pixel_data;
 	vector<int> converted_data;
 	int option_chosen;
+	srand(time(NULL));
 
 
 	what_file(input_stream, output_stream);
@@ -135,21 +137,23 @@ int main(void)
 		}
 		break;
 	case 8:
-		for (int i = 0; i < pixel_data[i]; i++)
+		for (int i = 0; i < pixel_data.size() - 1; i += 3)
 		{
-			int randomNum = rand() % 256 + (-10);
-			if (randomNum < 0 == true) 
+			int randomNum = rand() % (10 - (-10 + 1)) + (-10);
+			pixel_data[i] += randomNum;
+			pixel_data[i + 1] += randomNum;
+			pixel_data[i + 2] += randomNum;
+			for (int j = 0; j < 3; j++)
 			{
-				pixel_data[i] = 0;
-			}
-			else if (randomNum > 255 == true)
-			{
-				
-			}
-			else if (pixel_data[i] >= 0 == true)
-			{
-				 pixel_data[i] = pixel_data[i] + randomNum;
-			}
+				if (pixel_data[i + j] < 0)
+				{
+					pixel_data[i + j] = 0;
+				}
+				else if (pixel_data[i + j] > 255)
+				{
+					pixel_data[i + j] = 255;
+				}
+			}			
 		}
 	break;
 	default:
