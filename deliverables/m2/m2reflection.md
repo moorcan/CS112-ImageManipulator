@@ -1,0 +1,11 @@
+Candace Moore
+M2 Reflection
+2019-10-24
+
+* This assignment was not as difficult as some of the past assignments, but I did initally fumble with the logic of comparing two different variables such as i & j. The green squiggley line that indicated there was an overflow was a concern, and it lowered my confidence despite the program running. I have also thought about refactoring my code since the exam because I have found more efficient ways to calculate the average.
+
+* I would recommend that students attempts the problem on thier own to try to establish learning independence, but after a period of time, I would recommend that the student make a proactive effort to reach out to classmantes, tutuoring, or utilize the professor's office hours. The other recommendation I have for students, is to have proper expectation around the struggle. I feel like I have had moments of unreaslistic expectations. 
+
+* There were several apsects of this assignment that made me feel successful. I'm able to visualize what steps I'm trying to accomplish. I also feel like the fact that I struggle for so long, I really do enjoy the programming running so much more. I was really happy to see the logic play out after hashing it out in sevearl different ways. I feel like syntatically speaking, I'm struggling less. 
+
+* There ware several areas in which I would like to improve my skills. One thing I would like to intergrate into my project at some point is a class. I have seen fellow classmates, who have better skills than me, use them in their program. I can't speak of what is to come with the classes and how they will be intergrated into this program, but I have been wondering if I should have started with that from the beginning. Maybe a requirement next semester? Either way, I feel more confident to try different ways to code. Another aspect I really want to improve is the way I think about the problem. When I was thinking about how to let the use choose many options, my first thought was to include every option, instead of saying the one option we didn't want. 
