@@ -15,3 +15,4 @@ I had most of the logic already panned out. There were a few questions I had ini
 
 * This asignment really stressed the importance of not reinventing the wheel. I like that we are encouraged to use what ever resource we have with in reason. 
 
+
