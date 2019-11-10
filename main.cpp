@@ -12,6 +12,8 @@ CS112 - pa4
 #include <vector>
 #include <set>
 #include <time.h>
+#include "Pixel.hpp"
+#include "PPM.h"
 using namespace std;
 
 /*
@@ -22,42 +24,87 @@ of prompting the user for the file names.
 
 void what_file(ifstream& input_stream, ofstream& output_stream); //declaring function
 
-const int NUM_HEADER_LINES = 3;
+const int NUM_HEADER_LINES = 1;
+const int WIDTH_HEIGHT_HEADER = 2;
 
 int main(void)
 {
+/*{
 	ifstream input_stream;
 	ofstream output_stream;
 	string line_to_read;
 	vector<string> header_info;
 	vector<int> pixel_data;
-	vector<int> converted_data;
+	vector < vector < Pixel*>> pixel_matrix;
+	vector<int> window_size_info;
+	int string_to_num;
+	int num_rows;
+	int num_cols;
 	int option_chosen;
+	stringstream temp_holder;
 	srand(time(NULL));
+
 
 
 	what_file(input_stream, output_stream);
 
-	//Reading the first 3 lines of the File
-	if (input_stream.good() == true)
+	//Reading the first line
+
+	getline(input_stream, line_to_read);
+	header_info.push_back(line_to_read);
+
+	//Reading in the second line
+
+	getline(input_stream, line_to_read);
+	temp_holder >> string_to_num;
+
+	//Reading in the thrid line 
+	if ((input_stream.good() == true)
 	{
-		for (int i = 0; i < NUM_HEADER_LINES; i++)
+		for (int i = 0; i < WIDTH_HEIGHT_HEADER; i++)
 		{
 			getline(input_stream, line_to_read);
-			header_info.push_back(line_to_read);
+			window_size_info.push_back(line_to_read);
+			{
+				pixel_matrix[cur_x][cur_y];
+			}
+
 		}
 	}
+
 
 	//Reading the body of the file
 	while (input_stream.good() == true)
 	{
-		int value = 0;
-		input_stream >> value;
-		pixel_data.push_back(value);
+		int red = 0;
+		int green = 0;
+		int blue = 0;
+		int cur_x = 0;
+		int cur_y = 0;
+		input_stream >> red;
+		input_stream >> blue;
+		input_stream >> green;
+		pixel_matrix;
+		Pixel* p = new Pixel{ red,green,blue };
+		
+		for (int i =0; i < window_size_info.size; i++)
+		{
+			pixel_matrix[cur_x][cur_y];
+
+
+
+
+
+		}
+
+		//put pixel into matrix 
+
 	}
+
 
 	cout << "What would you like to do? 1. Remove Red, 2. Remove Green, 3. Remove Blue, 4. Negate Red\n";
 	cout << "5. Negate Green, 6. Negate Blue, 7. Grayscale. 8. Add Noise 9. High Contrast\n";
+	cout << "10. Flip Horizontally 11. Flip Vertically 12. Blur 13. Pixelate 14. Rotate 90";
 	cout << "Q. Quit Select Option" << endl;
 
 	do
@@ -181,8 +228,6 @@ int main(void)
 				}
 			}
 			break;
-
-		
 		}
 	}
 	while (option_chosen != 'Q');
@@ -197,7 +242,7 @@ int main(void)
 	for (int i = 0; i < pixel_data.size(); i++)
 	{
 		{
-			output_stream << pixel_data[i] << ' ';
+			output_stream << pixel_data[i][j] << ' ';
 		}
 	}
 
@@ -208,8 +253,20 @@ int main(void)
 	//cleaning up:
 	input_stream.close();
 	output_stream.close();
+	*/
+PPM image;
+
+
+ifstream input_ppm;
+input_ppm.open("bunny.ppm");
+image.open(input_ppm);
+input_ppm.close();
+
+
+
 	return 0;
 }
+
 
 
 void what_file(ifstream& input_stream, ofstream& output_stream)

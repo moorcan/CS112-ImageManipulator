@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PPM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="samples\blocks.ppm" />
@@ -133,6 +134,10 @@
     <None Include="samples\smiley.ppm" />
     <None Include="samples\squares.ppm" />
     <None Include="samples\tinypix.ppm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pixel.hpp" />
+    <ClInclude Include="PPM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
