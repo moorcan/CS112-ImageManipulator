@@ -14,6 +14,7 @@ CS112 - pa4
 #include <time.h>
 #include "Pixel.hpp"
 #include "PPM.h"
+#include<windows.h>
 using namespace std;
 
 /*
@@ -254,16 +255,66 @@ int main(void)
 	input_stream.close();
 	output_stream.close();
 	*/
-PPM image;
+	PPM image;
+	ifstream input_ppm;
+
+	input_ppm.open("bunny.ppm");
+	if (input_ppm.good()) {
+		image.open(input_ppm);
+		input_ppm.close();
+	}
+	else {
+		cout << "Could not open file" << endl;
+		return 1;
+	}
+
+	//image.negateRed();
+	//image.flipHorizontal();
+	cout << "Choose an image effect (1 - 11): ";
+	int imageEffect;
+	cin >> imageEffect;
+	image.ImageEditor(imageEffect);
+
+	
 
 
-ifstream input_ppm;
-input_ppm.open("bunny.ppm");
-image.open(input_ppm);
-input_ppm.close();
+	ofstream file_output;
+	file_output.open("output.ppm");
+	image.save(file_output);
+	file_output.close();
+
+	
+
+	// Displays the image to the console (Archer)
+	/*
+	//Get a console handle
+	HWND myconsole = GetConsoleWindow();
+	//Get a handle to device context
+	HDC mydc = GetDC(myconsole);
+
+	for (int i = 0; i < image.getHeight(); i++)
+	{
+		for (int j = 0; j < image.getWidth(); j++)
+		{
+			Pixel* pixel = image.getPixel(i, j);
+
+			if (pixel != NULL)
+			{
+				COLORREF color = RGB(pixel->getRed(), pixel->getGreen(), pixel->getBlue());
+
+				SetPixel(mydc, j, i, color);
+			}
+		}
+	}
+
+	ReleaseDC(myconsole, mydc);
 
 
 
+	cin.ignore();
+	*/
+
+	image.~PPM();
 	return 0;
 }
 

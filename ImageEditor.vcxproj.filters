@@ -13,40 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\samples">
-      <UniqueIdentifier>{45b6d61a-b734-4145-a000-784acb7ba425}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PPM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="samples\blocks.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\bunny.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\bunny2.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\cake.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\smiley.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\squares.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
-    <None Include="samples\tinypix.ppm">
-      <Filter>Resource Files\samples</Filter>
-    </None>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pixel.hpp">
@@ -55,5 +29,10 @@
     <ClInclude Include="PPM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bunny.ppm">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 #ifndef PIXEL_H
 #define PIXEL_H
 
-#include <istream>
+#include <iostream>
 #include <exception>
 using namespace std;
 
@@ -38,7 +38,6 @@ public:
 	void setBlue(int blue)
 	{
 		_blue = blue;
-
 	}
 
 	int getBlue()
@@ -48,29 +47,52 @@ public:
 
 	Pixel(int red, int green, int blue)
 	{
-		this->red = red;
-		this->green = green;
-		this->blue = blue;
+		this->_red = red;
+		this->_green = green;
+		this->_blue = blue;
 	}
 	
 	Pixel(vector<int>values)
 	{
 		if (values.size() == 3)
 		{
-			this->red = values[0];
-			this->green = values[1];
-			this->blue = values[2];
+			this->_red = values[0];
+			this->_green = values[1];
+			this->_blue = values[2];
 
 		}
 		else
 		{
 			cout << "Pixel Constructor called with wrong number of values!";
-			this->red = 0;
-			this->green = 0;
-			this->blue = 0;
+			this->_red = 0;
+			this->_green = 0;
+			this->_blue = 0;
 		}
-		
-}
+	}
+
+	string toString()
+	{
+		string result;
+		result = to_string(_red) + " " + to_string(_green) +  " " + to_string(_blue);
+		return result;
+	}
+
+	int getAverage()
+	{
+		return (_red + _green + _blue) / 3;
+	}
+
+	void swap(Pixel* other) {
+		int other_red = other->getRed();
+		int other_green = other->getGreen();
+		int other_blue = other->getBlue();
+		other->setRed(this->_red);
+		other->setGreen(this->_green);
+		other->setBlue(this->_blue);
+		this->_red = other_red;
+		this->_green = other_green;
+		this->_blue = other_blue;
+	}
 };
 /*
 istream& operator>>(istream& stream, Pixel& pixel)
