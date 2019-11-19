@@ -24,9 +24,6 @@ public:
 	void flipVertical();
 	void flipHorizontal();
 	bool save(ofstream&);
-	//Remove Red in RGB
-			//(starting with element 0) in the data component 
-			//to a zero. (Data Changed)
 
 	int getHeight()
 	{
@@ -230,10 +227,11 @@ public:
 				}
 			}
 			break;
+			//Horizontal Flip
 		case 10:
 			flipHorizontal();
 			break;
-
+			//Vertical Flip
 		case 11:
 			flipVertical();
 			break;

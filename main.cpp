@@ -270,7 +270,11 @@ int main(void)
 
 	//image.negateRed();
 	//image.flipHorizontal();
-	cout << "Choose an image effect (1 - 11): ";
+	cout << "Choose an image effect (1 - 11): \n";
+	cout << "1. Remove Red, 2. Remove Blue, 3. Remove Green 4. Negate Red\n";
+	cout << "5. Negate Green, 6. Negate Blue, 7. Grayscale. 8. Add Noise 9. High Contrast\n";
+	cout << "10. Horizontal Flip 11. Vertical Flip\n";
+	cout << "Q. Quit Select Option" << endl;
 	int imageEffect;
 	cin >> imageEffect;
 	image.ImageEditor(imageEffect);
@@ -279,40 +283,12 @@ int main(void)
 
 
 	ofstream file_output;
-	file_output.open("output.ppm");
+	string file_name;
+	cout << "What do you want to name the file?" << endl;
+	cin >> file_name;
+	file_output.open(file_name);
 	image.save(file_output);
 	file_output.close();
-
-	
-
-	// Displays the image to the console (Archer)
-	/*
-	//Get a console handle
-	HWND myconsole = GetConsoleWindow();
-	//Get a handle to device context
-	HDC mydc = GetDC(myconsole);
-
-	for (int i = 0; i < image.getHeight(); i++)
-	{
-		for (int j = 0; j < image.getWidth(); j++)
-		{
-			Pixel* pixel = image.getPixel(i, j);
-
-			if (pixel != NULL)
-			{
-				COLORREF color = RGB(pixel->getRed(), pixel->getGreen(), pixel->getBlue());
-
-				SetPixel(mydc, j, i, color);
-			}
-		}
-	}
-
-	ReleaseDC(myconsole, mydc);
-
-
-
-	cin.ignore();
-	*/
 
 	image.~PPM();
 	return 0;
